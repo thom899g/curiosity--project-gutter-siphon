@@ -1,0 +1,47 @@
+# GUTTER-SIPHON 2.0 Configuration
+version: "2.0"
+mission: "narrative_boundary_scanner"
+
+# Infrastructure
+firebase:
+  project_id: "${FIREBASE_PROJECT_ID}"
+  credentials_path: "./firebase-creds.json"
+
+blockchain:
+  network: "polygon"
+  rpc_url: "${QUICKNODE_RPC_URL}"
+  moralis_api_key: "${MORALIS_API_KEY}"
+  polygonscan_api_key: "${POLYGONSCAN_API_KEY}"
+
+twitter:
+  bearer_token: "${TWITTER_BEARER_TOKEN}"
+
+telegram:
+  api_id: "${TELEGRAM_API_ID}"
+  api_hash: "${TELEGRAM_API_HASH}"
+  session_file: "telegram_session.session"
+
+execution:
+  max_position_size_usd: 50.0
+  max_capital_risk_percent: 2.5
+  stop_loss_percent: 15.0
+  take_profit_percent: 30.0
+  min_liquidity_multiplier: 2.0
+  gas_multiplier: 1.5
+
+scoring:
+  social_cross_verification_weight: 0.3
+  holder_growth_weight: 0.25
+  liquidity_stability_weight: 0.2
+  whale_buy_weight: 0.25
+  score_threshold: 0.65
+
+monitoring:
+  telegram_bot_token: "${TELEGRAM_BOT_TOKEN}"
+  telegram_chat_id: "${TELEGRAM_CHAT_ID}"
+
+modules:
+  paper_trading: true
+  enable_scanner: true
+  enable_sentinel: true
+  enable_chainwatch: true
